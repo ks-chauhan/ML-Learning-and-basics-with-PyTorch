@@ -22,7 +22,7 @@ def plot_decision_boundary(model:torch.nn.Module,X:torch.tensor,y:torch.tensor):
     pred=torch.sigmoid(pred).round()
   #
   pred=pred.reshape(xx.shape).detach().numpy()
-  plt.contour(xx,yy,pred,cmap=plt.cm.RdYlBU,alpha=0.7)
+  plt.contour(xx,yy,pred,cmap=plt.cm.RdYlBu,alpha=0.7)
   plt.scatter(X[:,0],Y[:,1],y,cmap=plt.cm.RdYlBu)
   plt.xlim(xx.min(),xx.max())
   plt.ylim(yy.min(),yy.max())
