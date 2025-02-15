@@ -16,7 +16,7 @@ def plot_decision_boundary(model:torch.nn.Module,X:torch.tensor,y:torch.tensor):
     pred=model(X_pred_on)
   #
   if(len(torch.unique(y))>2):
-    pred=torch.softmax(pred).argmax(dim=1)
+    pred=torch.softmax(pred,dim=1).argmax(dim=1)
   else:
     pred=torch.sigmoid(pred).round()
   #
