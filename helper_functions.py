@@ -10,7 +10,7 @@ def plot_decision_boundary(model:torch.nn.Module,X:torch.tensor,y:torch.tensor):
   y_min,y_max=X[:,1].min(),X[:,1].max()
   xx,yy=np.meshgrid(np.linspace(x_min,x_max,101),np.linspace(y_min,y_max,101))
   #
-  X_pred_on=torch.from_numpy(np.column_stack(xx.ravel(),yy.ravel())).float()
+  X_pred_on=torch.from_numpy(np.column_stack((xx.ravel(),yy.ravel()))).float()
   #
   with torch.inference_mode():
     pred=model(X_pred_on)
