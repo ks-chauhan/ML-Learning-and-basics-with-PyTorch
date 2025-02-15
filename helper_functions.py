@@ -5,6 +5,7 @@ import numpy as np
 
 def plot_decision_boundary(model:torch.nn.Module,X:torch.tensor,y:torch.tensor):
   X,y=X.to("cpu"),y.to("cpu")
+  model.to("cpu")
   #
   x_min,x_max=X[:,0].min(),X[:,0].max()
   y_min,y_max=X[:,1].min(),X[:,1].max()
@@ -22,6 +23,6 @@ def plot_decision_boundary(model:torch.nn.Module,X:torch.tensor,y:torch.tensor):
   #
   pred=pred.reshape(xx.shape).detach().numpy()
   plt.contour(xx,yy,pred,cmap=plt.cm.RdYlBU,alpha=0.7)
-  plt.scatter(X[:,0],Y[:,1],y,cmap=plt.cm.RdYlBU)
+  plt.scatter(X[:,0],Y[:,1],y,cmap=plt.cm.RdYlBu)
   plt.xlim(xx.min(),xx.max())
   plt.ylim(yy.min(),yy.max())
